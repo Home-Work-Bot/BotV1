@@ -2,6 +2,7 @@ from aiogram import types, F, Router
 from aiogram.types import Message
 from aiogram.filters import Command
 
+import logic
 
 router = Router()
 
@@ -10,7 +11,27 @@ router = Router()
 async def start_handler(msg: Message):
     await msg.answer("Привет! Я помогу тебе узнать твой ID, просто отправь мне любое сообщение")
 
-
+@router.message(Command("help"))
+async def start_handler(msg: Message):
+    await msg.answer("LOG help")
+""""
 @router.message()
 async def message_handler(msg: Message):
     await msg.answer(f"Твой ID: {msg.from_user.id}")
+"""
+#######################
+#temporary Commands
+@router.message(Command("addMaterials"))
+async def start_handler(msg: Message):
+    await msg.answer("LOG addMaterials")
+
+@router.message(Command("addInstitution"))
+async def start_handler(msg: Message):
+    await msg.answer("LOG addInstitution")
+
+@router.message(Command("register"))
+async def start_handler(msg: Message):
+    await msg.answer("LOG register")
+    logic.registration.registration()
+    logic.createPinnedMessage.createPinnedMessage()
+#######################
