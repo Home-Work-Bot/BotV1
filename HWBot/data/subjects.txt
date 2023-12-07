@@ -1,4 +1,3 @@
-МатАнализ
-ЛинАл
-Физика
-ЧисленныеМетоды
+matAnalisis
+linearAlgebra
+physics

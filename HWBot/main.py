@@ -8,6 +8,8 @@ from aiogram.fsm.storage.memory import MemoryStorage
 import config
 from handlers import router
 
+#messageLinkExample
+#https://t.me/c/1401136600/18634
 
 async def main():
     bot = Bot(token=config.BOT_TOKEN, parse_mode=ParseMode.HTML)

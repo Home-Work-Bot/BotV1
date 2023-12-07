@@ -3,6 +3,7 @@ from aiogram.types import Message
 from aiogram.filters import Command
 
 import logic
+#from aiogram import ParseMode
 
 router = Router()
 
@@ -14,11 +15,21 @@ async def start_handler(msg: Message):
 @router.message(Command("help"))
 async def start_handler(msg: Message):
     await msg.answer("LOG help")
-""""
+
+#messageLinkExample
+#https://t.me/c/1401136600/18634
 @router.message()
 async def message_handler(msg: Message):
-    await msg.answer(f"Твой ID: {msg.from_user.id}")
-"""
+    await msg.answer(f"message <a href = 'https://t.me/{msg.chat.username}/{msg.message_id}'> link </a> ",
+                     parse_mode="HTML")
+    #<a href="http://www.example.com/">inline URL</a>
+    #await msg.answer(f"id сообщения: {msg}")
+    #await msg.answer(f"id сообщения: {msg.message_id}")
+    #await msg.answer(f"id чата: {msg.chat.id}")
+    #await msg.answer(f"ссылка: https://t.me/c/1401136600/18634{msg.chat}")
+
+    #await msg.answer(text = txt,
+                     #parse_mode = "HTML")
 #######################
 #temporary Commands
 @router.message(Command("addMaterials"))
@@ -33,5 +44,5 @@ async def start_handler(msg: Message):
 async def start_handler(msg: Message):
     await msg.answer("LOG register")
     logic.registration.registration()
-    logic.createPinnedMessage.createPinnedMessage()
+    logic.createPinnedMessage.createPinnedMessage(msg)
 #######################
